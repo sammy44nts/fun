@@ -57,7 +57,7 @@ char	*get_app_name(char *app_path) {
 
 void	show_usage(char *path) {
   printf("Usage: %s %s\n%s\n%s\n%s\n", get_app_name(path), "str [1-25]", \
-	 "Try to decode a message by brut forcing or one try with the offset defined.",	\
+	 "Try to decode a message by brute forcing or one try with the offset defined.",	\
 	 "str is the message",						\
 	 "offset is optional. If specified it will only check for this offset.");
 }
