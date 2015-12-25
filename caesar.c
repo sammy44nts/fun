@@ -9,20 +9,19 @@ void	show_result(int key, int len, char *msg) {
   printf("key %c : ", key + 'A');
   i = 0;
   while (i < len) {
-    if (msg[i] != ' ') {
-      c = (msg[i] - key);
-      last = 0;
-      if (msg[i] >= 'A' && msg[i] <= 'Z') {
-	last = 'A';
-	first = 'Z';
-      } else if (msg[i] >= 'a' && msg[i] <= 'z') {
-	last = 'a';
-	first = 'z';
-      }
-      if (last)
-	(c >= last ? putchar(c) : putchar(first + 1 - last + c));
-    } else
+    c = (msg[i] - key);
+    last = 0;
+    if (msg[i] == ' ' || msg[i] == '\t')
       putchar(msg[i]);
+    else if (msg[i] >= 'A' && msg[i] <= 'Z') {
+      last = 'A';
+      first = 'Z';
+    } else if (msg[i] >= 'a' && msg[i] <= 'z') {
+      last = 'a';
+      first = 'z';
+    }
+    if (last)
+      (c >= last ? putchar(c) : putchar(first + 1 - last + c));
     ++i;
   }
   putchar('\n');
@@ -46,12 +45,12 @@ void	brute_force(int len, char *msg) {
 }
 
 char	*get_app_name(char *app_path) {
-  int	i = 0;
-  int	split = 0;
+  int	split = strlen(app_path);
 
-  while (app_path[i])
-    if (app_path[++i - 1] == '/')
-      split = i;
+  while (app_path[split] != '/' && split > 0)
+    --split;
+  if (app_path[split] == '/')
+    ++split;
   return (&app_path[split]);
 }
 
