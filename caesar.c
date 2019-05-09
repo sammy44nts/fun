@@ -6,7 +6,7 @@ void	show_result(int key, int len, char *msg) {
   int	i;
   char	c, first, last;
 
-  printf("key %c : ", key + 'A');
+  printf("key %c: ", key + 'A');
   i = 0;
   while (i < len) {
     c = (msg[i] - key);
@@ -69,7 +69,7 @@ int	main(int ac, char **av) {
     len = strlen(msg);
   if (ac == 2)
     brute_force(len, msg);
-  else if (ac == 3){
+  else if (ac == 3) {
     if (one_try(atoi(av[2]), len, msg)) {
       show_usage(av[0]);
       return (-1);
@@ -77,5 +77,5 @@ int	main(int ac, char **av) {
   } else
     show_usage(av[0]);
 
-  return(0);
+  return (0);
 }
