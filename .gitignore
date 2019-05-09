@@ -31,4 +31,5 @@
 # Debug files
 *.dSYM/
 
+.vscode/
 caesar_code_breaker
