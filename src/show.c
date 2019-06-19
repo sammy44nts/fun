@@ -8,24 +8,23 @@ void	show_usage(char *path) {
 	 "offset is optional. If specified it will only check for this offset.");
 }
 
-void	show_result(int key, int len, char *msg) {
+void	show_result(int offset, int len, char *msg) {
   int	i;
   char	c, first, last;
 
-  printf("key %c: ", key + 'A');
+  printf("offset %d: ", offset);
   i = 0;
   while (i < len) {
-    c = (msg[i] - key);
+    c = (msg[i] - offset);
     last = 0;
-    if (msg[i] == ' ' || msg[i] == '\t')
-      putchar(msg[i]);
-    else if (msg[i] >= 'A' && msg[i] <= 'Z') {
+    if (msg[i] >= 'A' && msg[i] <= 'Z') {
       last = 'A';
       first = 'Z';
     } else if (msg[i] >= 'a' && msg[i] <= 'z') {
       last = 'a';
       first = 'z';
-    }
+    } else 
+      putchar(msg[i]);
     if (last)
       (c >= last ? putchar(c) : putchar(first + 1 - last + c));
     ++i;
