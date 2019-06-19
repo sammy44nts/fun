@@ -7,7 +7,7 @@ const string   caesar::Generator::encode(istringstream &iss, int const offset) c
         return string();
     char c, first, last, symbol;
     ostringstream oss = ostringstream();
-    while (iss >> c) {
+    while (iss >> noskipws >> c) {
         last = 0;
         symbol = c + offset;
         if (c >= 'A' && c <= 'Z') {
