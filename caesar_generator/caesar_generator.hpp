@@ -6,7 +6,7 @@
 namespace caesar {
     class Generator {
         public:
-        std::ostringstream  *encode(const std::istringstream &iss) const;
+        const std::string  encode(std::istringstream &iss, int const offset = 4) const;
     };
 }
 
