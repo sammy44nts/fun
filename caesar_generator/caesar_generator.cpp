@@ -3,6 +3,8 @@
 using namespace std;
 
 const string   caesar::Generator::encode(istringstream &iss, int const offset) const {
+    if (offset < 0 || offset > 25)
+        return string();
     char c, first, last, symbol;
     ostringstream oss = ostringstream();
     while (iss >> c) {

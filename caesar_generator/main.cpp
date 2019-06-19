@@ -13,7 +13,10 @@ int main(int ac, char **av) {
             int i;
             istringstream offset = istringstream(string(av[2]));
             offset >> i;
-            cout << gen.encode(iss, i) << endl;
+            if (i > 0 && i < 26)
+                cout << gen.encode(iss, i) << endl;
+            else
+                return -1;    
         } else
             cout << gen.encode(iss) << endl;
     } else {
